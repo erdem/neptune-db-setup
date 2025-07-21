@@ -1,0 +1,90 @@
+{
+  "id": "neptune-demo-http",
+  "title": "Neptune Demo (HTTP)",
+  "connection": {
+    "url": "gremlin-server:8182",
+    "headers": {},
+    "awsAuthEnabled": false,
+    "fetchTimeoutMs": 30000,
+    "graphDbUrl": "http://gremlin-server:8182"
+  },
+  "graphType": "gremlin",
+  "schema": {
+    "vertices": [
+      {
+        "type": "user",
+        "displayLabel": "${name}",
+        "properties": {
+          "userId": "string",
+          "name": "string", 
+          "email": "string",
+          "age": "number",
+          "createdAt": "string"
+        },
+        "styling": {
+          "color": "#4A90E2",
+          "icon": "👤"
+        }
+      },
+      {
+        "type": "product",
+        "displayLabel": "${name}",
+        "properties": {
+          "productId": "string",
+          "name": "string",
+          "category": "string", 
+          "price": "number",
+          "createdAt": "string"
+        },
+        "styling": {
+          "color": "#7ED321",
+          "icon": "📦"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "type": "friends_with",
+        "sourceVertexType": "user",
+        "targetVertexType": "user",
+        "displayLabel": "friends",
+        "properties": {
+          "createdAt": "string"
+        },
+        "styling": {
+          "color": "#F5A623",
+          "lineStyle": "solid"
+        }
+      },
+      {
+        "type": "purchased",
+        "sourceVertexType": "user", 
+        "targetVertexType": "product",
+        "displayLabel": "bought",
+        "properties": {
+          "quantity": "number",
+          "rating": "number",
+          "purchaseDate": "string"
+        },
+        "styling": {
+          "color": "#D0021B",
+          "lineStyle": "solid"
+        }
+      },
+      {
+        "type": "recommended",
+        "sourceVertexType": "user",
+        "targetVertexType": "product", 
+        "displayLabel": "recommended",
+        "properties": {
+          "score": "number",
+          "createdAt": "string"
+        },
+        "styling": {
+          "color": "#9013FE",
+          "lineStyle": "dashed"
+        }
+      }
+    ]
+  }
+}
