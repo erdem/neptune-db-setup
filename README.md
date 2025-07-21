@@ -1,4 +1,4 @@
-# Neptune Local Development Stack
+# Neptune Local Playground Setup
 
 This project provides a local setup for AWS Neptune graph database playground. It includes a containerized Gremlin server, Python client libraries, sample data, and the AWS Graph Explorer UI for visual graph exploration.
 
