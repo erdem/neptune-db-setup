@@ -1,0 +1,12 @@
+{
+  "id": "local-gremlin",
+  "title": "Local Gremlin Server",
+  "connection": {
+    "url": "ws://gremlin-server:8182/gremlin",
+    "headers": {},
+    "awsAuthEnabled": false,
+    "fetchTimeoutMs": 30000,
+    "graphDbUrl": "ws://gremlin-server:8182/gremlin"
+  },
+  "graphType": "gremlin"
+}

@@ -1,0 +1,32 @@
+services:
+  gremlin-server:
+    image: tinkerpop/gremlin-server:latest
+    container_name: neptune-demo-gremlin
+    ports:
+      - "8182:8182"
+    environment:
+      - JAVA_OPTIONS=-Xms512m -Xmx1024m
+    command: /opt/gremlin-server/sample/conf/gremlin-server-air-routes.yaml
+    healthcheck:
+      test: ["CMD-SHELL", "netstat -an | grep 8182 | grep LISTEN || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  graph-explorer:
+    image: public.ecr.aws/neptune/graph-explorer:latest
+    platform: linux/amd64
+    container_name: neptune-demo-explorer
+    ports:
+      - "8080:80"
+    environment:
+      - HOST=localhost
+      - PUBLIC_OR_PROXY_ENDPOINT=http://localhost:8080
+      - GRAPH_TYPE=gremlin
+      - USING_PROXY_SERVER=true
+      - PROXY_SERVER_HTTPS_CONNECTION=false
+      - GRAPH_CONNECTION_URL=http://gremlin-server:8182
+    depends_on:
+      gremlin-server:
+        condition: service_healthy

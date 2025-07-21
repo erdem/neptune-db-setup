@@ -1,0 +1,17 @@
+{
+  "connections": [
+    {
+      "id": "local-gremlin-default",
+      "name": "Local Gremlin Server",
+      "url": "ws://gremlin-server:8182/gremlin",
+      "queryEngine": "gremlin",
+      "proxyConnection": false,
+      "graphDbUrl": "ws://gremlin-server:8182/gremlin",
+      "awsAuthEnabled": false,
+      "serviceType": "neptune-db",
+      "nodeExpansionLimit": 1000,
+      "connectionTimeout": 30000
+    }
+  ],
+  "defaultConnection": "local-gremlin-default"
+}
