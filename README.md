@@ -51,7 +51,7 @@ User ──[friends_with]──> User
 
 ### What is Gremlin?
 
-Gremlin is a graph traversal language - like SQL for relational databases. Neptune is compatible with Apache TinkerPop and Gremlin, so you can connect to Neptune and use Gremlin to query your graphs.
+Gremlin is a graph traversal language - like SQL for relational databases. Amazon Neptune is compatible with Apache TinkerPop3 and Gremlin. This means that you can connect to a Neptune DB instance and use the Gremlin traversal language to query the graph.
 
 ### Why HTTP Instead of WebSocket?
 
